@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h3
+    a(href=categoryUrl(category)) posts la categoria * #{category}
+  - each post in posts
+    include includes/postSnippet

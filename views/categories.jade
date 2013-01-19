@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Todas las Categorias
+  ul
+    - each cat in categoryList
+      li
+        a(href=categoryUrl(cat)) #{cat}
