@@ -1,6 +1,6 @@
 'use strict';
 var express  = require('express')
-  , blogp = require('poet')
+  , blogp  = require('poet')
   , app    = express()
   , poet   = blogp(app)
   , router
