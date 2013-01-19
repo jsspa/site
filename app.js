@@ -1,8 +1,9 @@
+'use strict';
 var express  = require('express')
   , blogp = require('poet')
   , app    = express()
   , poet   = blogp(app)
-  , routes
+  , router
 
 /* poet configuration */
 poet.set({
@@ -23,7 +24,7 @@ poet.set({
   app.set('port', process.env.PORT || 3000)
   app.set('view engine', 'jade')
   app.set('views', __dirname + '/views')
-  app.use(express.static( __dirname + '/public'))
+  app.use(express['static']( __dirname + '/public'))
   app.use(poet.middleware())
   app.use(app.router)
 }

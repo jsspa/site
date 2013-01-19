@@ -1,9 +1,8 @@
-
 /*
  * Todas las rutas
  */
 
-module.exports = function (app){
+module.exports = function (app){'use strict';
 
   var Routes = {
     home: function (req, res){
@@ -19,7 +18,7 @@ module.exports = function (app){
     },
     tag:  function (req, res){
       var taggedPosts = req.poet.postsWithTag( req.params.tag );
-      if ( taggedPosts.length ) {
+      if (taggedPosts.length) {
         res.render( 'tag', {
           posts : taggedPosts,
           tag : req.params.tag
