@@ -1,10 +1,10 @@
 /* ====================== FONT-FACE ====================== */
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700");
+/*@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700");*/
 body {
   color: #000;
   font-size: 1em;
   line-height: 1.2;
-  font-family: "Source Sans Pro";
+  font-family: "museo-sans";
   font-weight: 300;
 /* ====================== NAVIGATION ====================== */
 /* ====================== BACKGROUNDS ====================== */

@@ -2,6 +2,6 @@ extends layout
 
 block content
   h3
-    a(href=categoryUrl(category)) posts la categoria * #{category}
+    a(href=categoryUrl(category)) posts de la categoria * #{category}
   - each post in posts
     include includes/postSnippet

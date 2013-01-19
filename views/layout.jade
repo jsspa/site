@@ -29,12 +29,13 @@ html
           block content
         .column_4
           .well.sidebar-nav
-            ul.nav.nav-list
-              li.nav-header categories
-              - each cat in categoryList
-                li
-                  a(href=categoryUrl(cat)) #{cat}
-              li.nav-header tags
+            ul 
+              legend Etiquetas
               - each tag in tagList
                 li
                   a(href=tagUrl(tag)) #{tag}
+            ul
+              legend Series
+              - each cat in categoryList
+                li
+                  a(href=categoryUrl(cat)) #{cat}
