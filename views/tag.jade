@@ -2,6 +2,6 @@ extends layout
 
 block content
   h3
-    a(href=tagUrl(tag)) posts etiquetados * #{tag}
+    a(href=tagUrl(tag)) posts etiquetados con * #{tag}
   - each post in posts
     include includes/postSnippet

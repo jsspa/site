@@ -1,11 +1,12 @@
-div.post
-  h1
+div.padding_top.padding_bottom(data-type="post")
+  h3
     a(href=post.url)
       = post.title
-  span.date #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
+    span.margin_left.text.italic.right.small
+      | #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
   div.post.content
     != post.preview
   div.tags
     - each tag in post.tags
       a(href=tagUrl(tag))
-        span.button.medium #{tag}
+        span.button.tiny #{tag}

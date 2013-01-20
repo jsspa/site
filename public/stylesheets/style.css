@@ -79,8 +79,14 @@
   border-bottom: 1px solid;
   color: yellow !important;
   font-family: "museo-slab";
+  vertical-align: top;
 }
-
+.pagination {
+  padding-top: 20px;
+}
+.pagination:before {
+  content: "<<";
+}
 /* 
  * Syntax
  * ------
@@ -93,9 +99,9 @@ pre {
   background-color: #f0efe8;
   overflow: auto;
   font-size: 14px;
-  font-family: 'Source Code Pro','Monaco', 'Menlo','Monospace';
+  
 }
-
+pre, code {font-family: 'Source Code Pro','Monaco', 'Menlo','Monospace';}
 code { color: rgba(0,0,0, 1); }
 code .keyword              { font-weight: bold; color: #6089d4; }
 code .string, code .regexp { color: green }
