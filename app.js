@@ -5,6 +5,20 @@ var express  = require('express')
   , poet   = blogp(app)
   , router
 
+
+{ /* express configuration */
+  app.set('port', process.env.PORT || 3000)
+  app.set('view engine', 'jade')
+  app.set('site.host', 'http://jsspa.org')
+  app.set('site.title', 'JS en Español')
+  app.set('site.author', 'jsspa (tm)')
+  app.set('views', __dirname + '/views')
+  app.use(express['static']( __dirname + '/public'))
+  app.use(poet.middleware())
+  app.use(app.router)
+}
+
+var feed = require('./rss')(app)
 /* poet configuration */
 poet.set({
   metaFormat:'json',
@@ -18,16 +32,14 @@ poet.set({
     tag: '/t/',
     page: '/pg/'
   }
-}).init()
+}).init(function(local){
+  local.postList.forEach(function (post){
+    feed.add(post)
+  })
+  feed.generate()
+})
 
-{ /* express configuration */
-  app.set('port', process.env.PORT || 3000)
-  app.set('view engine', 'jade')
-  app.set('views', __dirname + '/views')
-  app.use(express['static']( __dirname + '/public'))
-  app.use(poet.middleware())
-  app.use(app.router)
-}
+
 
 router = require('./routes')(app)
 
@@ -36,7 +48,7 @@ app.get('/p/:post', router.post)
 app.get('/t/:tag', router.tag)
 app.get('/s/:category', router.series)
 app.get('/pg/:page', router.pages)
-
+app.get('/rss', feed.send)
 app.listen(app.get('port'), function (){
   console.log('[*] Listening on %d', app.get('port'))
 })

@@ -10,6 +10,7 @@
     "jade": "*",
     "redis": "~0.8.2",
     "socket.io": "~0.9.13",
-    "poet":"https://github.com/jsspa/poet/tarball/master"
+    "poet": "https://github.com/jsspa/poet/tarball/master",
+    "rss": "0.0.4"
   }
 }
