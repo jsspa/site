@@ -7,7 +7,7 @@ module.exports = function(app){'use strict';
         description: app.get('site.description'),
         author: app.get('site.author'),
         site_url: 'http://' + app.get('site.host') + '/',
-        feed_url: url.resolve(feed.site_url, 'rss')
+        feed_url: 'http://' + app.get('site.host') + '/rss'
       })
 
   return {
@@ -26,7 +26,7 @@ module.exports = function(app){'use strict';
         app.set('site.rss', feed.xml())
       }
     },
-    send: function (req, res) {
+    send: function (req, res){
       res.contentType('application/rss+xml')
       res.end(app.get('site.rss'))
     }
