@@ -5,11 +5,10 @@ module.exports = function(app){'use strict';
     , feed = new RSS({
         title: app.get('site.title'),
         description: app.get('site.description'),
-        author: app.get('site.author')
+        author: app.get('site.author'),
+        site_url: 'http://' + app.get('site.host') + '/',
+        feed_url: url.resolve(feed.site_url, 'rss')
       })
-  
-  feed.site_url = 'http://' + app.get('site.host') + '/'
-  feed.feed_url = url.resolve(feed.site_url, 'rss')
 
   return {
     add: function (item){
