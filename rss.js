@@ -26,7 +26,7 @@ module.exports = function(app){'use strict';
       }
     },
     send: function (req, res) {
-      res.writeHead(200, {'Content-Type': 'application/rss+xml'})
+      res.contentType('application/rss+xml')
       res.end(app.get('site.rss'))
     }
   }
