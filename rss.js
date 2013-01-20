@@ -17,6 +17,8 @@ module.exports = function(app){'use strict';
         title:  item.title,
         description: item.preview,
         url: item.url,
+        author: item.author || 'Anon',
+        categories: item.tags,
         date: item.date
       })    
     },
