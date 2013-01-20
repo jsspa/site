@@ -11,12 +11,6 @@ module.exports = function(grunt) {
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
-    lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
-    },
-    qunit: {
-      files: ['test/**/*.html']
-    },
     concat: {
       dist: {
         src: ['<banner:meta.banner>', '<file_strip_banner:lib/<%= pkg.name %>.js>'],
@@ -54,7 +48,19 @@ module.exports = function(grunt) {
     uglify: {}
   });
 
+  grunt.registerTask('update', 'updates submodules', function (){
+    var done = this.async();
+    grunt.log.writeln('Actualizando submodulos');
+    grunt.utils.spawn({
+      cmd:'/usr/bin/git',
+      args: ['submodule', 'foreach', 'git', 'pull']
+    }, function (err, output){
+      if (err) throw err;
+      grunt.log.writelns(output.stdout);
+      done();
+    });
+  });
   // Default task.
-  grunt.registerTask('default', 'lint qunit concat min');
+  grunt.registerTask('default', 'concat min');
 
 };
