@@ -2,8 +2,9 @@
 var express  = require('express')
   , blogp  = require('poet')
   , app    = express()
+  , feed   = require('./rss')(app)
+  , router = require('./routes')(app)
   , poet   = blogp(app)
-  , router
 
 
 { /* express configuration */
@@ -18,7 +19,7 @@ var express  = require('express')
   app.use(app.router)
 }
 
-var feed = require('./rss')(app)
+
 /* poet configuration */
 poet.set({
   metaFormat:'json',
@@ -40,15 +41,13 @@ poet.set({
 })
 
 
-
-router = require('./routes')(app)
-
 app.get('/', router.home)
 app.get('/p/:post', router.post)
 app.get('/t/:tag', router.tag)
 app.get('/s/:category', router.series)
 app.get('/pg/:page', router.pages)
 app.get('/rss', feed.send)
+
 app.listen(app.get('port'), function (){
   console.log('[*] Listening on %d', app.get('port'))
 })
