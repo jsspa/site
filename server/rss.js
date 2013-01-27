@@ -1,7 +1,6 @@
 /* RSS feed generator */
 module.exports = function(app){'use strict';
-  var url = require('url')
-    , RSS = require('rss')
+  var RSS = require('rss')
     , feed = new RSS({
         title: app.get('site.title'),
         description: app.get('site.description'),
