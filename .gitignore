@@ -1,0 +1,30 @@
+## Linux
+!.gitignore
+*~
+
+## Node and Grunt
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+tmp
+
+npm-debug.log
+node_modules
+
+# SublimeText
+*.sublime-workspace
+
+# Vim
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
