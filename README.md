@@ -9,6 +9,8 @@ Para ejecutar este repositorio solamente necesitas:
 ```
 $ git clone git@github.com:jsspa/site.git
 $ cd site && npm install
+$ git submodule init
+$ git submodule update
 $ grunt update
 $ PORT=3031 npm start
 [*] Listening on 3031
