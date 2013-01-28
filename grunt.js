@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     grunt.log.writeln('Actualizando submodulos');
     grunt.utils.spawn({
       cmd:'/usr/bin/git',
-      args: ['submodule', 'foreach', 'git', 'pull']
+      args: ['submodule', 'foreach', 'git', 'pull', 'origin', 'master']
     }, function (err, output){
       if (err) throw err;
       grunt.log.writelns(output.stdout);
