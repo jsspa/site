@@ -9,6 +9,8 @@ var express  = require('express')
 
 app.configure(function () {/* express configuration */
   app.set('port', process.env.PORT || 3000)
+  app.set('pkg', require('../package'))
+  app.set('cfg', require('./config'))
   app.set('view engine', 'jade')
   app.set('site.host', 'http://jsspa.org')
   app.set('site.title', 'JS en Español')
@@ -17,6 +19,11 @@ app.configure(function () {/* express configuration */
   app.use(express['static'](__dirname + '/../app'))
   app.use(poet.middleware())
   app.use(app.router)
+  app.locals({
+      cfg: app.get('cfg')
+    , environment: app.get('environment')
+  })
+  app.disable('x-powered-by')
 })
 
 
