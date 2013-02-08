@@ -1,6 +1,7 @@
 extends layout
 
 block content
+
   - var posts = getPosts(0,5)
   - var page  = 1
   - var first = posts[0]
@@ -8,8 +9,7 @@ block content
   article.jumbotron
     h3= first.title
     p.lead!= first.preview
-    a.btn.btn-large.btn-success(href="#{first.url}") Leer más
+  include includes/navbar
   - each post in posts
     include includes/postSnippet
-
   include includes/pagination

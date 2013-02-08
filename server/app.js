@@ -32,7 +32,10 @@ poet.set({
     metaFormat: 'json'
   , posts: __dirname + '/../_posts'
   , readMoreLink : function (post) {
-      var anchor = '<a href="' + post.url + '" title="Leer más de ' + post.title + '">Leer más</a>'
+      var anchor = [
+      '<a class="btn btn-small btn-blue" href="',
+       post.url,
+       '" title="Leer más de ', post.title , '">Leer más</a>'].join('')
       return '<p>' + anchor + '</p>'
     }
   , routes: {
