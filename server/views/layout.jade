@@ -8,43 +8,37 @@ html
     - else 
       link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap.css')  
       link(rel='stylesheet', href='/stylesheets/style.css')
-  body.container-narrow
+  body
+    .container-narrow
 
-    header.jsspa.masthead
-      ul.nav.nav-pills.pull-right
-        li.active
-          a(href="#") Inicio
-        li
-          a(href="#/series") Series
-      h3.muted
-        img(src="/img/tmp_logo.png", heigth="38px",width="38px")
-        a.logo.text.normal(href="/") &nbsp;en Español
-    hr
-    section(role="main")
-      .row
-        .column_8
-          block content
-        .column_4
-          table.column_2
-            thead
-              tr
-                th Series
-            tbody
-              - each cat in categoryList
-                tr
-                  td
-                    small 
-                      a(href=categoryUrl(cat)) #{cat}
-          table.column_2
-            thead
-              tr
-                th Etiquetas
-            tbody
-              - each cat in tagList
-                tr
-                  td
-                    small
-                      a(href=categoryUrl(cat)) #{cat}
+      header.jsspa.masthead
+        ul.nav.nav-pills.pull-right
+          li.active
+            a(href="#") Inicio
+          li
+            a(href="#/series") Series
+        h3.muted
+          a(href="/")
+            img(src="/img/tmp_logo.png", heigth="38px",width="38px")
+          //- a.logo.text.normal(href="/") &nbsp;en Español
+      hr
+      section(role="main")
+        .row
+          .span12
+            block content
+    footer.row
+        .span4#series
+          h4 Series
+          ul.span3
+            - each cat in categoryList
+              li 
+                a(href=categoryUrl(cat)) #{cat}
+        .span4#tags
+          h4 Etiquetas
+          ul.span3
+            - each cat in tagList
+              li
+                a(href=categoryUrl(cat)) #{cat}
     - if (environment === 'production')
       script(src="/bundle/#{cfg.commit}.min.js", type="application/javascript")
     - else

@@ -10,6 +10,7 @@ block content
     h3= first.title
     p.lead!= first.preview
   include includes/navbar
-  - each post in posts
-    include includes/postSnippet
-  include includes/pagination
+  .row
+    - each post in posts
+      include includes/postSnippet
+    include includes/pagination

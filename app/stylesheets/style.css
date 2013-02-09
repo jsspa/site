@@ -3,7 +3,6 @@
 body {
   font-family: "Open Sans"
   padding-top: 20px;
-  padding-bottom: 40px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -40,7 +39,21 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .collapse {padding-left: 35%;}
-
+footer {
+  padding-left: 50px;
+  background: #EEE;
+  padding-bottom: -10px;
+}
+/* rewrite defaults*/
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+  color: white;
+  background-color: #720042;
+}
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: #A87995;
+  color: white;
+}
 /*--------- theme ----- */
 
 /* Tomorrow Night Bright Theme */

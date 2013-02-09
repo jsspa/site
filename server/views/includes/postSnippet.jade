@@ -1,12 +1,17 @@
-div.padding_top.padding_bottom(data-type="post")
-  h3
-    a(href=post.url)
-      = post.title
-    span.margin_left.text.italic.right.small
-      | #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
-  div.post.content
+section.span6.padding_top.padding_bottom(data-type="post",id='#{post.title}')
+  header
+      h3
+        a(href=post.url)
+          = post.title
+      span.margin_left.text.italic.right.small
+        | #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
+      span#author #{post.author}
+
+  article.post.content
     != post.preview
-  div.tags
-    - each tag in post.tags
-      a(href=tagUrl(tag))&nbsp;
-        span.button.tiny #{tag} &nbsp;
+  footer
+    //- .tags
+    //-   - each tag in post.tags
+    //-     a(href=tagUrl(tag))&nbsp;   
+    //-       span.button.tiny #{tag} &nbsp;
+    
